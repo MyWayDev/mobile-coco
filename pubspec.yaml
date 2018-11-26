@@ -29,6 +29,7 @@ dependencies:
   firebase_storage: ^1.0.4
   modal_progress_hud: ^0.1.2
   badges: ^0.0.6
+  numberpicker: ^0.1.7
 
 dev_dependencies:
   flutter_test:

@@ -21,12 +21,12 @@ class MainModel extends Model {
   List<ItemOrder> itemorderlist = [];
 
 
-void addItemOrder(Item item){
+void addItemOrder(Item item,int qty){
 final ItemOrder itemorder = ItemOrder(
         itemId: item.itemId,
         price: double.parse(item.price.toString()),
         bp: item.bp,
-        qty: 10);
+        qty: qty);
 
 if(item != null){
     itemorderlist.add(itemorder);
@@ -35,6 +35,10 @@ if(item != null){
     else print('item ordered is null !!');
     print('itemId:${itemorder.itemId}--Price:${itemorder.price}*${itemorder.qty}=${itemorder.totalPrice}');
   print(itemorderlist.length);
+}
+//! working  here ... 
+void updateItemOrder(index){
+// itemorderlist.lastIndexWhere() =
 }
 
 List<ItemOrder> get displayItemOrder{

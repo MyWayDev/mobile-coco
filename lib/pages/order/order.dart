@@ -26,13 +26,17 @@ class _OrderPage extends State<OrderPage> {
             Expanded(
                 child: model.itemorderlist.length != 0
                     ? ListView.builder(
-                        itemCount: model.itemorderlist.length,
+                        itemCount: model.displayItemOrder.length,
                         itemBuilder: (BuildContext context, int i) {
                           return Card(
                               child: Row(
                             children: <Widget>[
-                              Text(model.itemorderlist[i].itemId),
-                              Text('something to show')
+                              Text(model.displayItemOrder[i].itemId + '  '),
+                              Text(model.displayItemOrder[i].price.toString() +
+                                  '  '),
+                              Text(model.displayItemOrder[i].qty.toString() +
+                                  '  '),
+                              Text(i.toString()),
                             ],
                           ));
                         },

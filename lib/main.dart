@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:n_gen/pages/items/items.dart';
 import 'package:n_gen/pages/items/items.tabs.dart';
-
 import 'package:n_gen/scoped/connected.dart';
 import 'package:n_gen/pages/welcome_page.dart';
 import './pages/user/registration_page.dart';
 import './pages/user/login_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 import './pages/user/lock_screen.dart';
-
 import 'package:http/http.dart' as http;
 import 'package:firebase_database/firebase_database.dart';
 

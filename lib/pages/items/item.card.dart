@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:n_gen/models/item.order.dart';
+import 'package:numberpicker/numberpicker.dart';
 import 'package:n_gen/pages/items/item.details.dart';
 import 'package:n_gen/models/item.dart';
 import 'package:n_gen/scoped/connected.dart';
@@ -8,9 +8,11 @@ import 'package:scoped_model/scoped_model.dart';
 class ItemCard extends StatelessWidget {
   final List<Item> itemData;
 
+  List<int> qtyList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   final int index;
   ItemCard(this.itemData, this.index);
-
+  ModelData _data = ModelData.empty();
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -116,16 +118,44 @@ class ItemCard extends StatelessWidget {
                                         color: Colors.pink[900],
                                         onPressed: () {
                                           showDialog(
+                                              barrierDismissible: false,
                                               context: context,
                                               builder: (_) => SimpleDialog(
-                                                    title: Text('Qty'),
+                                                    title: Center(
+                                                        child: Text('الكمية')),
                                                     children: <Widget>[
                                                       TextField(
-                                                        onChanged: (value) {},
-                                                      )
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        onChanged: (value) {
+                                                          _data.number =
+                                                              int.parse(value);
+                                                        },
+                                                      ),
+                                                      IconButton(
+                                                        icon: Icon(
+                                                          Icons.check,
+                                                          size: 40.0,
+                                                          color: Colors.green,
+                                                        ),
+                                                        onPressed: () {
+                                                          if (_data.number !=
+                                                              0) {
+                                                            model.addItemOrder(
+                                                                itemData[index],
+                                                                _data.number);
+                                                            Navigator.pop(
+                                                                context);
+                                                          } else
+                                                            Navigator.pop(
+                                                                context);
+                                                        },
+                                                      ),
                                                     ],
                                                   ));
-                                          model.addItemOrder(itemData[index]);
                                         }),
                                   ],
                                 )
@@ -172,5 +202,17 @@ class ItemCard extends StatelessWidget {
         ),
       ]),
     );
+  }
+}
+
+class ModelData {
+  String text;
+  int number;
+
+  ModelData(this.text, this.number);
+
+  ModelData.empty() {
+    text = "";
+    number = 0;
   }
 }
