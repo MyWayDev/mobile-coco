@@ -12,7 +12,6 @@ import './pages/user/lock_screen.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:firebase_database/firebase_database.dart';
-import 'dart:async' show Future;
 
 //String _lockPath =
 // 'https://epoch-1a552.firebaseio.com/flamelink/environments/production/content/lockScreen/en-US/lockApp';
