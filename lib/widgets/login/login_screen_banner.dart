@@ -21,12 +21,11 @@ class LoginBanner extends StatelessWidget {
                       'https://pngimage.net/wp-content/uploads/2018/06/locked-png-3.png',
                       scale: 3,
                     )
-                  : AssetImage(
-                      "assets/images/adbanner.png"), //!! need to change it to networkImagae & make it dynamic
-              // fit: BoxFit.cover,
-              /*NetworkImage(this.bannerUrl,
+                  : NetworkImage(this.bannerUrl,
                       scale:
-                          1.0),  */
+                          1.0), //AssetImage("assets/images/adbanner.png"), //!! need to change it to networkImagae & make it dynamic
+              // fit: BoxFit.cover,
+              /* */
             ),
           ),
           alignment: Alignment.bottomRight,

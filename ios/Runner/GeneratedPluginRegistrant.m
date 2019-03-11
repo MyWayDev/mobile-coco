@@ -8,7 +8,6 @@
 #import <firebase_database/FirebaseDatabasePlugin.h>
 #import <firebase_messaging/FirebaseMessagingPlugin.h>
 #import <firebase_storage/FirebaseStoragePlugin.h>
-#import <flutter_local_notifications/FlutterLocalNotificationsPlugin.h>
 
 @implementation GeneratedPluginRegistrant
 
@@ -18,7 +17,6 @@
   [FLTFirebaseDatabasePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseDatabasePlugin"]];
   [FLTFirebaseMessagingPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseMessagingPlugin"]];
   [FLTFirebaseStoragePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseStoragePlugin"]];
-  [FlutterLocalNotificationsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterLocalNotificationsPlugin"]];
 }
 
 @end

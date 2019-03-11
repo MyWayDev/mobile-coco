@@ -6,7 +6,6 @@ INJECTED from /Users/shadyabouauf/proj/n_gen/android/app/src/main/AndroidManifes
 INJECTED from /Users/shadyabouauf/proj/n_gen/android/app/src/main/AndroidManifest.xml:1:1-46:12
 MERGED from [:firebase_messaging] /Users/shadyabouauf/proj/n_gen/build/firebase_messaging/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:firebase_auth] /Users/shadyabouauf/proj/n_gen/build/firebase_auth/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-10:12
 MERGED from [:firebase_database] /Users/shadyabouauf/proj/n_gen/build/firebase_database/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:firebase_core] /Users/shadyabouauf/proj/n_gen/build/firebase_core/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:firebase_storage] /Users/shadyabouauf/proj/n_gen/build/firebase_storage/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-7:12
@@ -180,8 +179,6 @@ MERGED from [:firebase_messaging] /Users/shadyabouauf/proj/n_gen/build/firebase_
 MERGED from [:firebase_messaging] /Users/shadyabouauf/proj/n_gen/build/firebase_messaging/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /Users/shadyabouauf/proj/n_gen/build/firebase_auth/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /Users/shadyabouauf/proj/n_gen/build/firebase_auth/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
-MERGED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
-MERGED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] /Users/shadyabouauf/proj/n_gen/build/firebase_database/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] /Users/shadyabouauf/proj/n_gen/build/firebase_database/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /Users/shadyabouauf/proj/n_gen/build/firebase_core/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-44
@@ -282,26 +279,6 @@ action#com.google.firebase.MESSAGING_EVENT
 ADDED from [:firebase_messaging] /Users/shadyabouauf/proj/n_gen/build/firebase_messaging/intermediates/manifests/full/debug/AndroidManifest.xml:15:17-78
 	android:name
 		ADDED from [:firebase_messaging] /Users/shadyabouauf/proj/n_gen/build/firebase_messaging/intermediates/manifests/full/debug/AndroidManifest.xml:15:25-75
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-database:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.3.aar/1789ac79b8d75d6dd8e036bd31f8c1c2/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-database:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.3.aar/1789ac79b8d75d6dd8e036bd31f8c1c2/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-storage:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-storage-16.0.3.aar/823cf8ef7ab688fdf9444b19a748400d/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-storage:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-storage-16.0.3.aar/823cf8ef7ab688fdf9444b19a748400d/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.2.aar/4157124b098f30518226c8bea5eec8fb/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.2.aar/4157124b098f30518226c8bea5eec8fb/AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-analytics:16.0.4] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.4.aar/89e68186b8e384d07454f74e000f9c98/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics:16.0.4] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.4.aar/89e68186b8e384d07454f74e000f9c98/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.2.2.aar/4178daedea769a040a651724ee48d371/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.2.2.aar/4178daedea769a040a651724ee48d371/AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/3db48b6b70b766f08bead42fe8cba7bf/AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/3db48b6b70b766f08bead42fe8cba7bf/AndroidManifest.xml:22:5-79
-	android:name
-		ADDED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:7:22-76
-uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:8:5-76
-	android:name
-		ADDED from [:connectivity] /Users/shadyabouauf/proj/n_gen/build/connectivity/intermediates/manifests/full/debug/AndroidManifest.xml:8:22-73
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:17.3.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-messaging-17.3.3.aar/3569d2d97939aa2c13c3ac1d5b861dd6/AndroidManifest.xml:28:9-34:19
 	android:exported
@@ -340,6 +317,20 @@ ADDED from [com.google.firebase:firebase-auth:16.0.5] /Users/shadyabouauf/.gradl
 		ADDED from [com.google.firebase:firebase-auth:16.0.5] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.5.aar/8aabf688df9113779fccd5fa239fe895/AndroidManifest.xml:38:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:16.0.5] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.0.5.aar/8aabf688df9113779fccd5fa239fe895/AndroidManifest.xml:37:17-109
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-database:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.3.aar/1789ac79b8d75d6dd8e036bd31f8c1c2/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-storage:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-storage-16.0.3.aar/823cf8ef7ab688fdf9444b19a748400d/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-storage:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-storage-16.0.3.aar/823cf8ef7ab688fdf9444b19a748400d/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.2.aar/4157124b098f30518226c8bea5eec8fb/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.2.aar/4157124b098f30518226c8bea5eec8fb/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.4] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.4.aar/89e68186b8e384d07454f74e000f9c98/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics:16.0.4] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.4.aar/89e68186b8e384d07454f74e000f9c98/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.2.2.aar/4178daedea769a040a651724ee48d371/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-16.2.2.aar/4178daedea769a040a651724ee48d371/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/3db48b6b70b766f08bead42fe8cba7bf/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/3db48b6b70b766f08bead42fe8cba7bf/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-database:16.0.3] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-database-16.0.3.aar/1789ac79b8d75d6dd8e036bd31f8c1c2/AndroidManifest.xml:22:22-76
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.2.aar/4157124b098f30518226c8bea5eec8fb/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-analytics:16.0.4] /Users/shadyabouauf/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.4.aar/89e68186b8e384d07454f74e000f9c98/AndroidManifest.xml:25:5-68

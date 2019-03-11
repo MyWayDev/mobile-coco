@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:n_gen/bottom_nav.dart';
 import 'package:n_gen/models/lock.dart';
-import 'package:n_gen/pages/items/item.details.dart';
-import 'package:n_gen/pages/items/items.tabs.dart';
-import 'package:n_gen/pages/user/lock_screen.dart';
 import '../../widgets/login/login_screen_banner.dart' as banner;
 import '../../widgets/login/registration_button.dart' as registration_button;
 import 'package:n_gen/scoped/connected.dart';
