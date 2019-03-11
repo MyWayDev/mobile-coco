@@ -19,10 +19,12 @@ class RegistrationButton extends StatelessWidget {
                   new Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
-                      "Register",
+                      "تسجيل",
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold),
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ),
                   new Expanded(

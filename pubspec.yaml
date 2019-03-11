@@ -15,26 +15,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  scoped_model: ^0.3.0
-  groovin_material_icons: ^1.0.3
-  http: ^0.12.0
-  flutter_launcher_icons: ^0.6.1
-  firebase_auth: ^0.6.2+1
-  firebase_core: any
-  firebase_database: ^1.0.5
-  firebase_storage: ^1.0.4
+  flutter_local_notifications: ^0.5.2
+  scoped_model: ^1.0.1
+  groovin_material_icons: ^1.1.6
+  http: ^0.12.0+1
+  flutter_launcher_icons: ^0.7.0
+  firebase_auth: ^0.8.1+4
+  firebase_core: 0.3.1+1
+  firebase_database: ^2.0.2
+  firebase_storage: ^2.1.0+1
+  firebase_messaging: ^4.0.0+1
   modal_progress_hud: ^0.1.2
   badges: ^0.0.6
-  numberpicker: ^0.1.7
+  numberpicker: ^1.0.0
+  datetime_picker_formfield: ^0.1.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_icons:
+  image_path: "assets/images/icon.png"
+  android: true
+  ios: true
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
@@ -49,7 +58,9 @@ flutter:
   assets:
     - assets/images/mywaybg.jpg
     - assets/images/background.jpg
-    - assets/json/data.json
+    - assets/images/myway.png
+    - assets/images/adminbanner.jpg
+    - assets/images/adbanner.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,0 +1,126 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d 817C7D30-ED6D-4EE1-97B4-3CDE92FCB016
+
+## exception
+
+String: Exit code 65 from: /usr/bin/env xcrun xcodebuild -configuration Debug -quiet -workspace Runner.xcworkspace -scheme Runner BUILD_DIR=/Users/shadyabouauf/n_gen/build/ios -sdk iphonesimulator -arch x86_64 SCRIPT_OUTPUT_STREAM_FILE=/var/folders/f_/vmhx2yrj23g28021wlxk5v680000gn/T/flutter_build_log_pipe.qCYVyc/pipe_to_stdout -showBuildSettings
+
+```
+#0      _runWithLoggingSync (package:flutter_tools/src/base/process.dart:353:7)
+#1      runCheckedSync (package:flutter_tools/src/base/process.dart:284:10)
+#2      buildXcodeProject (package:flutter_tools/src/ios/mac.dart:505:69)
+<asynchronous suspension>
+#3      IOSSimulator._setupUpdatedApplicationBundle (package:flutter_tools/src/ios/simulators.dart:378:48)
+<asynchronous suspension>
+#4      IOSSimulator.startApp (package:flutter_tools/src/ios/simulators.dart:308:15)
+<asynchronous suspension>
+#5      FlutterDevice.runHot (package:flutter_tools/src/resident_runner.dart:289:54)
+#6      _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#7      _rootRunUnary (dart:async/zone.dart:1132:38)
+#8      _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#9      _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#10     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#11     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#12     Future._complete (dart:async/future_impl.dart:476:7)
+#13     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#14     _AsyncAwaitCompleter.complete (dart:async/runtime/libasync_patch.dart:28:18)
+#15     _completeOnAsyncReturn (dart:async/runtime/libasync_patch.dart:295:13)
+#16     getApplicationPackageForPlatform (package:flutter_tools/src/application_package.dart)
+#17     _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#18     _rootRunUnary (dart:async/zone.dart:1132:38)
+#19     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#20     _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#21     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#22     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#23     Future._complete (dart:async/future_impl.dart:476:7)
+#24     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#25     _AsyncAwaitCompleter.complete (dart:async/runtime/libasync_patch.dart:28:18)
+#26     _completeOnAsyncReturn (dart:async/runtime/libasync_patch.dart:295:13)
+#27     FlutterProject.fromDirectory (package:flutter_tools/src/project.dart)
+#28     _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#29     _rootRunUnary (dart:async/zone.dart:1132:38)
+#30     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#31     _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#32     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#33     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#34     Future._complete (dart:async/future_impl.dart:476:7)
+#35     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#36     _AsyncAwaitCompleter.complete (dart:async/runtime/libasync_patch.dart:28:18)
+#37     _completeOnAsyncReturn (dart:async/runtime/libasync_patch.dart:295:13)
+#38     FlutterProject._readManifest (package:flutter_tools/src/project.dart)
+#39     _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#40     _rootRunUnary (dart:async/zone.dart:1132:38)
+#41     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#42     _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#43     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#44     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#45     Future._complete (dart:async/future_impl.dart:476:7)
+#46     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#47     _rootRunUnary (dart:async/zone.dart:1132:38)
+#48     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#49     _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#50     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#51     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#52     Future._complete (dart:async/future_impl.dart:476:7)
+#53     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#54     _AsyncAwaitCompleter.complete.<anonymous closure> (dart:async/runtime/libasync_patch.dart:33:20)
+#55     _rootRun (dart:async/zone.dart:1124:13)
+#56     _CustomZone.run (dart:async/zone.dart:1021:19)
+#57     _CustomZone.bindCallback.<anonymous closure> (dart:async/zone.dart:947:23)
+#58     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#59     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#60     _runPendingImmediateCallback (dart:isolate/runtime/libisolate_patch.dart:115:13)
+#61     _RawReceivePortImpl._handleMessage (dart:isolate/runtime/libisolate_patch.dart:172:5)
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, v1.0.0, on Mac OS X 10.13.6 17G2208, locale en-EG)
+    [32m•[39m Flutter version 1.0.0 at /Users/shadyabouauf/flutter
+    [32m•[39m Framework revision 5391447fae (2 months ago), 2018-11-29 19:41:26 -0800
+    [32m•[39m Engine revision 7375a0f414
+    [32m•[39m Dart version 2.1.0 (build 2.1.0-dev.9.4 f9ebf21297)
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK 28.0.3)
+    [32m•[39m Android SDK at /Users/shadyabouauf/Library/Android/sdk
+    [32m•[39m Android NDK location not configured (optional; useful for native profiling support)
+    [32m•[39m Platform android-28, build-tools 28.0.3
+    [32m•[39m Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1248-b01)
+    [33m![39m Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+
+[33m[!][39m iOS toolchain - develop for iOS devices (Xcode 10.1)
+    [32m•[39m Xcode at /Applications/Xcode.app/Contents/Developer
+    [32m•[39m Xcode 10.1, Build version 10B61
+    [31m✗[39m libimobiledevice and ideviceinstaller are not installed. To install with Brew, run:
+        brew update
+        brew install --HEAD usbmuxd
+        brew link usbmuxd
+        brew install --HEAD libimobiledevice
+        brew install ideviceinstaller
+    [31m✗[39m ios-deploy not installed. To install with Brew:
+        brew install ios-deploy
+    [31m✗[39m CocoaPods not installed.
+        CocoaPods is used to retrieve the iOS platform side's plugin code that responds to your plugin usage on the Dart side.
+        Without resolving iOS dependencies with CocoaPods, plugins will not work on iOS.
+        For more info, see https://flutter.io/platform-plugins
+      To install:
+        brew install cocoapods
+        pod setup
+
+[32m[✓][39m Android Studio (version 3.3)
+    [32m•[39m Android Studio at /Applications/Android Studio.app/Contents
+    [31m✗[39m Flutter plugin not installed; this adds Flutter specific functionality.
+    [31m✗[39m Dart plugin not installed; this adds Dart specific functionality.
+    [32m•[39m Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1248-b01)
+
+[32m[✓][39m Connected device (2 available)
+    [32m•[39m Android SDK built for x86 • emulator-5554                        • android-x86 • Android 8.0.0 (API 26) (emulator)
+    [32m•[39m iPhone XR                 • 817C7D30-ED6D-4EE1-97B4-3CDE92FCB016 • ios         • iOS 12.1 (simulator)
+
+[33m![39m Doctor found issues in 2 categories.
+```

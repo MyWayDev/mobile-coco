@@ -86,6 +86,7 @@ class AqDetail {
       this.totalprice,
       this.itemBp,
       this.itemBv});
+
   factory AqDetail.fromJson(Map<String, dynamic> json) {
     return AqDetail(
         itemId: json['ITEM_ID'],

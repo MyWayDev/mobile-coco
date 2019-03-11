@@ -13,7 +13,7 @@ class RegistrationPage extends StatefulWidget {
 }
 
 //final FirebaseDatabase dataBase = FirebaseDatabase.instance;
-
+@override
 class _RegistrationPage extends State<RegistrationPage> {
   final model = MainModel();
 
@@ -117,7 +117,7 @@ class _RegistrationPage extends State<RegistrationPage> {
         builder: (BuildContext context, Widget child, MainModel model) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Registration Form'),
+          title: Text('تسجيل بيانات العضو'),
         ),
         body: ModalProgressHUD(
           child: Container(
@@ -152,31 +152,27 @@ class _RegistrationPage extends State<RegistrationPage> {
                   child: Column(children: <Widget>[
                     TextFormField(
                       decoration: InputDecoration(
-                          labelText: 'Myway Code',
+                          labelText: 'رقم العضويه',
                           contentPadding: EdgeInsets.all(8.0),
                           icon: Icon(Icons.vpn_key, color: Colors.pink[500])),
-                      autocorrect: true,
+                      //autocorrect: true,
                       autofocus: true,
-                      autovalidate: true,
-                      initialValue: '00000000',
-                      validator: (value) {
-                        if (value.length < 8 || value.length > 8) {
-                          return 'length must be 8 digits';
-                        }
-                        String p = '[0-9]';
-                        RegExp regex = new RegExp(p);
-                        if (!regex.hasMatch(value)) {
-                          return 'Invalid';
-                        }
-                      },
+                      //autovalidate: true,
+                      // initialValue: '00000000',
+                      validator: (value) => value.isEmpty
+                          ? 'رقم العضويه !!'
+                          : RegExp('[0-9]').hasMatch(value)
+                              ? null
+                              : 'رقم العضويه !!',
+
                       keyboardType: TextInputType.number,
                       onSaved: (String value) {
-                        _registrationFormData['userId'] = value;
+                        _registrationFormData['userId'] = value.padLeft(8, '0');
                       },
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                          labelText: 'Personal ID',
+                          labelText: 'الرقم الوطنى',
                           contentPadding: EdgeInsets.all(8.0),
                           icon: Icon(Icons.assignment_ind,
                               color: Colors.pink[500])),
@@ -189,7 +185,7 @@ class _RegistrationPage extends State<RegistrationPage> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                          labelText: 'Telephone',
+                          labelText: 'الهاتف',
                           contentPadding: EdgeInsets.all(8.0),
                           icon: Icon(Icons.phone, color: Colors.pink[500])),
                       onSaved: (String value) {
@@ -198,7 +194,7 @@ class _RegistrationPage extends State<RegistrationPage> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'البريد',
                           filled: true,
                           fillColor: Colors.transparent,
                           contentPadding: EdgeInsets.all(8.0),
@@ -213,7 +209,7 @@ class _RegistrationPage extends State<RegistrationPage> {
                     ),
                     TextFormField(
                       decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'كلمة المرور',
                           filled: true,
                           fillColor: Colors.transparent,
                           contentPadding: EdgeInsets.all(8.0),
@@ -233,9 +229,9 @@ class _RegistrationPage extends State<RegistrationPage> {
             Container(
               margin: const EdgeInsets.only(top: 20.0),
               padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: new Row(
+              child: Row(
                 children: <Widget>[
-                  Container(
+                  /*Container(
                     padding: EdgeInsets.only(right: 10.0),
                     child: FlatButton.icon(
                       label: Text('Test Code'),
@@ -243,39 +239,43 @@ class _RegistrationPage extends State<RegistrationPage> {
                         Icons.playlist_add_check,
                         size: 20.0,
                       ),
-                      onPressed: () async {
-                        _regPressed();
+                      onPressed: () {
+                        // model.getInvoices('06000050');
+                        // model.fbItemList();
+                        model.fbItemsUpdateFromDb();
+                        // await model.getArea();
+                        //  model.stageToProduction();
+                        //  model.itemsAndImageAssembly();
                       },
                     ),
-                  ),
-                  new Expanded(
+                  ),*/
+                  Expanded(
                     child: FlatButton(
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)),
                       splashColor: Theme.of(context).primaryColor,
                       color: Colors.pink[100],
-                      child: new Row(
+                      child: Row(
                         children: <Widget>[
-                          new Padding(
+                          Padding(
                             padding: const EdgeInsets.only(left: 20.0),
                             child: Text(
-                              "Register",
+                              "تسجيل",
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          new Expanded(
+                          Expanded(
                             child: Container(),
                           ),
-                          new Transform.translate(
+                          Transform.translate(
                             offset: Offset(15.0, 0.0),
-                            child: new Container(
+                            child: Container(
                               padding: const EdgeInsets.all(5.0),
                               child: FlatButton(
-                                shape: new RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(28.0)),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(28.0)),
                                 splashColor: Colors.white,
                                 color: Colors.white,
                                 child: Icon(

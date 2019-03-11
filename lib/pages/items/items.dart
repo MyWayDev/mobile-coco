@@ -2,8 +2,12 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:groovin_material_icons/groovin_material_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:n_gen/models/lock.dart';
 import 'package:n_gen/pages/items/item.details.dart';
 import 'package:n_gen/pages/order/order.dart';
+import 'package:n_gen/pages/user/lock_screen.dart';
+import 'package:n_gen/widgets/color_loader_2.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../../models/item.dart';
 import '../../models/order.dart';
@@ -23,83 +27,123 @@ class _ItemsPage extends State<ItemsPage> {
   List<Item> searchResult = [];
   FirebaseDatabase database = FirebaseDatabase.instance;
   DatabaseReference databaseReference;
+  var subAdd;
+  var subChanged;
   TextEditingController controller = new TextEditingController();
+  Lock lock;
+
   @override
   void initState() {
     super.initState();
+
     databaseReference = database.reference().child(path);
-    databaseReference.onChildAdded.listen(_onItemEntryAdded);
-    databaseReference.onChildChanged.listen(_onItemEntryChanged);
+    subAdd = databaseReference.onChildAdded.listen(_onItemEntryAdded);
+    subChanged = databaseReference.onChildChanged.listen(_onItemEntryChanged);
   }
 
-  String promoPic(int index) {
-    String picStr =
-        '${itemData[index].promoImage[0].toString()}_tag-${itemData[index].promo.toString().substring(2)}';
-    String ok = 'ok';
-    String no = 'no';
-    if (itemData[index].promo.toString().substring(2) == 25.toString()) //||
-      //itemData[index].promoImage.toString() != null)
-      return 'https://firebasestorage.googleapis.com/v0/b/mobile-coco.appspot.com/o/flamelink%2Fmedia%2F1540155722221_tag-25.png?alt=media&token=be067db9-e0c4-4b92-a523-432f3bcd14e7';
-    else
-      return 'https://firebasestorage.googleapis.com/v0/b/mobile-coco.appspot.com/o/flamelink%2Fmedia%2F1540155801359_tag-50.png?alt=media&token=46fdc725-a01b-4674-a982-dbde43796078';
-  }
-
-  void add() {
-    final Map<String, dynamic> data = {
-      'a9master': {'CUS_VEN_ID': '00000001'},
-      'apmaster': {"GROSS_TOTAL": 34.5, "NET_TOTAL": 34.5},
-      'aadetail': [
-        {"ITEM_ID": "8408", "QTY": 1}
-      ],
-      "aqdetail": [
-        {
-          "ITEM_ID": "8408",
-          "QTY_REQ": 1,
-          "UNIT_PRICE": 34.5,
-          "NET_PRICE": 34.5,
-          "TOT_PRICE": 34.5,
-          "ITEM_BP": 18,
-          "ITEM_BV": 35.88
-        }
-      ]
-    };
-    // http.post(orderUrl, body: json.encode(data));
+  @override
+  void dispose() {
+    super.dispose();
+    subAdd?.cancel();
+    subChanged?.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomPadding: false,
-      body: Column(
-        children: <Widget>[
-          Container(
-            color: Theme.of(context).primaryColor,
-            child: Card(
-              child: ListTile(
-                leading: Icon(
-                  Icons.search,
-                  size: 32.0,
-                ),
-                title: TextField(
-                  controller: controller,
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    border: InputBorder.none,
+    return ScopedModelDescendant<MainModel>(
+        builder: (BuildContext context, Widget child, MainModel model) {
+      model.itemData = itemData;
+      model.searchResult = searchResult;
+
+      return Scaffold(
+        floatingActionButton: FloatingActionButton.extended(
+          label: model.orderSum() > 0
+              ? Padding(
+                  child: Wrap(
+                      spacing: 25,
+                      runSpacing: 11,
+                      direction: Axis.horizontal,
+                      children: <Widget>[
+                        Chip(
+                          backgroundColor: Colors.grey[700],
+                          avatar: CircleAvatar(
+                            child: Text('Dh',
+                                style: TextStyle(
+                                    //color: Colors.green[400],
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          label: Text(
+                            model.orderSum().toString(),
+                            style: TextStyle(
+                                color: Colors.green[400],
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Chip(
+                          backgroundColor: Colors.grey[700],
+                          avatar: CircleAvatar(
+                            child: Text('Bp',
+                                style: TextStyle(
+                                    //color: Colors.green[400],
+                                    fontSize: 17.0,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          label: Text(
+                            model.orderBp().toString(),
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ]),
+                  padding: EdgeInsets.only(right: 38),
+                )
+              : Container(),
+          isExtended: true,
+          elevation: 30,
+          //onPressed:,
+          icon: Icon(
+            Icons.arrow_right,
+            color: Colors.transparent,
+          ),
+          backgroundColor: Colors.transparent,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+        resizeToAvoidBottomPadding: false,
+        body: Column(
+          children: <Widget>[
+            Container(
+              color: Theme.of(context).primaryColorLight,
+              child: Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.search,
+                    size: 28.0,
                   ),
-                  // style: TextStyle(fontSize: 18.0),
-                  onChanged: onSearchTextChanged,
-                ),
-                trailing: IconButton(
-                  icon: Icon(Icons.cancel, size: 25.0),
-                  onPressed: () {
-                    controller.clear();
-                    onSearchTextChanged('');
-                  },
+                  title: TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                      hintText: 'بحث',
+                      border: InputBorder.none,
+                    ),
+                    // style: TextStyle(fontSize: 18.0),
+                    onChanged: onSearchTextChanged,
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.cancel, size: 25.0),
+                    onPressed: () {
+                      controller.clear();
+                      onSearchTextChanged('');
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
+            Expanded(
               child: searchResult.length != 0 || controller.text.isNotEmpty
                   ? ListView.builder(
                       itemCount: searchResult.length,
@@ -107,16 +151,17 @@ class _ItemsPage extends State<ItemsPage> {
                         return ItemCard(searchResult, i);
                       },
                     )
-                  : FirebaseAnimatedList(
-                      query: databaseReference,
-                      itemBuilder: (_, DataSnapshot snapshot,
-                          Animation<double> animation, int index) {
+                  : ListView.builder(
+                      itemCount: itemData.length,
+                      itemBuilder: (context, index) {
                         return ItemCard(itemData, index);
                       },
-                    )),
-        ],
-      ),
-    );
+                    ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   onSearchTextChanged(String text) {
@@ -126,22 +171,26 @@ class _ItemsPage extends State<ItemsPage> {
       return;
     }
 
-    itemData.forEach((item) {
+    itemData.where((i) => !i.disabled).forEach((item) {
       if (item.name.contains(text) || item.itemId.contains(text))
         searchResult.add(item);
     });
-
     setState(() {});
   }
 
   void _onItemEntryAdded(Event event) {
+    //List<Item> items = List();
     itemData.add(Item.fromSnapshot(event.snapshot));
+    // items.where((i) => !i.disabled).forEach((f) => itemData.add(f));
+    //print("itemData length:${itemData.length}");
   }
 
   void _onItemEntryChanged(Event event) {
     var oldEntry = itemData.lastWhere((entry) {
       return entry.key == event.snapshot.key;
     });
-    itemData[itemData.indexOf(oldEntry)] = Item.fromSnapshot(event.snapshot);
+    setState(() {
+      itemData[itemData.indexOf(oldEntry)] = Item.fromSnapshot(event.snapshot);
+    });
   }
 }

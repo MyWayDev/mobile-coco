@@ -90,7 +90,7 @@ class _ColorLoader2State extends State<ColorLoader2>
           Container(
             padding: EdgeInsets.only(top: 75.0),
             child: Text(
-              'Loading...',
+              '',
               style: TextStyle(fontSize: 18.0),
             ),
           ),

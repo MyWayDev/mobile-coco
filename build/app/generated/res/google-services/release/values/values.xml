@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">592280217867-lmrque82s41d053ihk4vek7vmvupleo9.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://mobile-coco.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">592280217867</string>
+    <string name="google_api_key" translatable="false">AIzaSyBc_0vEBiNdifadetaoHO4vCHDbyNWzlsA</string>
+    <string name="google_app_id" translatable="false">1:592280217867:android:7c1c6ad4297912c3</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBc_0vEBiNdifadetaoHO4vCHDbyNWzlsA</string>
+    <string name="google_storage_bucket" translatable="false">mobile-coco.appspot.com</string>
+    <string name="project_id" translatable="false">mobile-coco</string>
+</resources>

@@ -50,8 +50,8 @@ class ItemDetails extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/mobile-coco.appspot.com/o/flamelink%2Fmedia%2F${item.image[0].toString()}_${item.itemId}.png?alt=media&token=274fc65f-8295-43d5-909c-e2b174686439',
-                ),
+                    item.imageUrl // 'https://firebasestorage.googleapis.com/v0/b/mobile-coco.appspot.com/o/flamelink%2Fmedia%2F${item.image[0].toString()}_${item.itemId}.png?alt=media&token=274fc65f-8295-43d5-909c-e2b174686439',
+                    ),
                 Container(
                     padding: EdgeInsets.all(10.0), child: Text(item.name)),
 
