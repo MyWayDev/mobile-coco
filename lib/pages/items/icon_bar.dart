@@ -33,7 +33,7 @@ class _IconBar extends State<IconBar> {
                       icon: Icon(
                         Icons.shopping_cart,
                         color: Colors.pink[900],
-                        size: 36.0,
+                        size: 32.0,
                       ),
                       // required
                       //badgeColor: Colors.pink[900],
@@ -50,7 +50,7 @@ class _IconBar extends State<IconBar> {
                       icon: Icon(
                         Icons.remove_shopping_cart,
                         color: Colors.grey,
-                        size: 36.0,
+                        size: 32.0,
                       ),
                       // required
                       //badgeColor: Colors.pink[900],
@@ -68,11 +68,11 @@ class _IconBar extends State<IconBar> {
                             StockDialog(widget.itemData, widget.index));
                   }),*/
               Padding(
-                padding: EdgeInsets.only(left: 11.0, right: 11.0),
+                padding: EdgeInsets.only(left: 7.0, right: 7.0),
               ),
               IconButton(
                   icon: Icon(Icons.info_outline),
-                  iconSize: 36.0,
+                  iconSize: 32.0,
                   color: Colors.blueAccent,
                   onPressed:
                       () {} /* () {

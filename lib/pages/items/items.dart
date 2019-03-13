@@ -79,14 +79,14 @@ class _ItemsPage extends State<ItemsPage> {
                             child: Text('Bp',
                                 style: TextStyle(
                                     //color: Colors.green[400],
-                                    fontSize: 17.0,
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.bold)),
                           ),
                           label: Text(
                             model.orderBp().toString(),
                             style: TextStyle(
                                 color: Colors.red,
-                                fontSize: 17.0,
+                                fontSize: 16.0,
                                 fontWeight: FontWeight.bold),
                           ),
                         )

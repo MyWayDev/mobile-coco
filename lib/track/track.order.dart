@@ -368,80 +368,123 @@ class _TrackOrder extends State<TrackOrder> {
                         return Card(
                           elevation: 8,
                           color: Colors.pink[700],
-                          child: ExpansionTile(
-                              backgroundColor: Colors.pink[400],
-                              key: PageStorageKey<Sorder>(firstSorder[index]),
-                              title: ListTile(
-                                leading: Container(
-                                  child: Column(
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                  leading: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: <Widget>[
-                                      Text(firstSorder[index].docId,
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.yellow[100])),
-
-                                      /*Text(firstSorder[index].distrId,
-                                          style: TextStyle(
-                                              fontSize: 15,
-                                              color: Colors.yellow[100]))*/
-                                    ],
-                                  ),
-                                ),
-                                title: Container(
-                                  child: Column(
-                                    children: <Widget>[
+                                      Icon(Icons.vpn_key),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 5),
+                                      ),
                                       Text(
                                         firstSorder[index].distrId,
                                         style: TextStyle(
                                             fontStyle: FontStyle.italic,
-                                            fontSize: 14,
+                                            // fontSize: 14,
                                             color: Colors.white),
                                       ),
-                                      firstSorder[index].docDate == '0000-00-00'
-                                          ? Container()
-                                          : Text(
-                                              firstSorder[index].docDate,
-                                              style: TextStyle(
-                                                  fontStyle: FontStyle.italic,
-                                                  fontSize: 14,
-                                                  color: Colors.white),
-                                            ),
                                     ],
                                   ),
-                                ),
-                                trailing: Container(
-                                  child: Column(
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
                                     children: <Widget>[
-                                      Text(
-                                        'Dh ${firstSorder[index].soTotal}',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.red[100],
-                                          fontSize: 15,
-                                        ),
+                                      Icon(Icons.calendar_today),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 5),
                                       ),
                                       Text(
-                                        'Bp ${firstSorder[index].soBp}',
+                                        firstSorder[index].docDate,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.blue[100],
-                                          fontSize: 15,
-                                        ),
-                                      )
+                                            fontStyle: FontStyle.italic,
+                                            //fontSize: 14,
+                                            color: Colors.white),
+                                      ),
                                     ],
+                                  )),
+                              ExpansionTile(
+                                  backgroundColor: Colors.pink[400],
+                                  key: PageStorageKey<Sorder>(
+                                      firstSorder[index]),
+                                  title: ListTile(
+                                    leading: Container(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Text(firstSorder[index].docId,
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.yellow[100])),
+
+                                          /*Text(firstSorder[index].distrId,
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.yellow[100]))*/
+                                        ],
+                                      ),
+                                    ),
+                                    /*  title: Container(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Text(
+                                            firstSorder[index].distrId,
+                                            style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                fontSize: 14,
+                                                color: Colors.white),
+                                          ),
+                                          firstSorder[index].docDate ==
+                                                  '0000-00-00'
+                                              ? Container()
+                                              : Text(
+                                                  firstSorder[index].docDate,
+                                                  style: TextStyle(
+                                                      fontStyle:
+                                                          FontStyle.italic,
+                                                      fontSize: 14,
+                                                      color: Colors.white),
+                                                ),
+                                        ],
+                                      ),
+                                    ),*/
+                                    trailing: Container(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Text(
+                                            'Dh ${firstSorder[index].soTotal}',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.red[100],
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Bp ${firstSorder[index].soBp}',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.blue[100],
+                                              fontSize: 15,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                              children: [
-                                _buildSorder(firstSorder, index, model)
-                              ]
-                              /* firstInvoice[index]
+                                  children: [
+                                    _buildSorder(firstSorder, index, model)
+                                  ]
+                                  /* firstInvoice[index]
                         .invoiceItems
                         .map(_buildItem)
                         .toList()*/
-                              //root.invoiceItems.map(_buildTiles).toList(),
-                              ),
+                                  //root.invoiceItems.map(_buildTiles).toList(),
+                                  ),
+                            ],
+                          ),
                         );
                         // EntryItem(invoices[index]);
                       }),

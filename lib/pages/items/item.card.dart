@@ -62,11 +62,12 @@ class ItemCard extends StatelessWidget {
                     ),
                     Container(
                       child: Flexible(
+                        fit: FlexFit.tight,
                         flex: 1,
                         child: Column(
                           children: <Widget>[
                             Padding(
-                              padding: EdgeInsets.only(bottom: 5.0),
+                              padding: EdgeInsets.only(bottom: 2.0),
                             ),
                             Text(
                               itemData[index].itemId,
@@ -76,7 +77,7 @@ class ItemCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(bottom: 5.0),
+                              padding: EdgeInsets.only(bottom: 2.0),
                             ),
 
                             Text(
@@ -129,20 +130,20 @@ class ItemCard extends StatelessWidget {
                                       'Dh ${itemData[index].price.toString()}',
                                       style: TextStyle(
                                           color: Colors.green[700],
-                                          fontSize: 17.0,
+                                          fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
                                       'Bp ${itemData[index].bp.toString()}',
                                       style: TextStyle(
                                           color: Colors.red[900],
-                                          fontSize: 17.0,
+                                          fontSize: 16.0,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  padding: EdgeInsets.only(bottom: 2.0),
                                 ),
                               ],
                             )
