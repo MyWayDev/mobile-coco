@@ -275,28 +275,85 @@ class _TrackInvoice extends State<TrackInvoice> {
                           child: Card(
                               elevation: 8,
                               color: _statusColor(firstInvoice[index].status),
-                              child: ExpansionTile(
-                                  backgroundColor: _statusColorHead(
-                                      firstInvoice[index].status),
-                                  key: PageStorageKey<Invoice>(
-                                      firstInvoice[index]),
-                                  title: ListTile(
-                                    leading: Container(
-                                      child: Column(
+                              child: Column(
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    //mainAxisSize: MainAxisSize.min,
+                                    //crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
-                                          Text(firstInvoice[index].shipId,
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.grey[800])),
-                                          Text(firstInvoice[index].shipper,
-                                              style: TextStyle(
-                                                  fontSize: 15,
-                                                  color: Colors.grey[800]))
+                                          Icon(
+                                            Icons.vpn_key,
+                                            size: 19,
+                                            color: Colors.black54,
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(5),
+                                          ),
+                                          Text(
+                                            firstInvoice[index].distrId,
+                                            style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                // fontSize: 14,
+                                                color: Colors.black),
+                                          ),
                                         ],
                                       ),
-                                    ),
-                                    title: Container(
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: <Widget>[
+                                          Icon(
+                                            Icons.calendar_today,
+                                            size: 19,
+                                            color: Colors.black54,
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(5),
+                                          ),
+                                          Text(
+                                            firstInvoice[index].docDate,
+                                            style: TextStyle(
+                                                fontStyle: FontStyle.italic,
+                                                //fontSize: 14,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  ExpansionTile(
+                                      backgroundColor: _statusColorHead(
+                                          firstInvoice[index].status),
+                                      key: PageStorageKey<Invoice>(
+                                          firstInvoice[index]),
+                                      title: ListTile(
+                                        leading: Container(
+                                          child: Column(
+                                            children: <Widget>[
+                                              Text(firstInvoice[index].shipId,
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.grey[800])),
+                                              Text(firstInvoice[index].shipper,
+                                                  style: TextStyle(
+                                                      fontSize: 15,
+                                                      color: Colors.grey[800]))
+                                            ],
+                                          ),
+                                        ),
+                                        /* title: Container(
                                       child: Column(
                                         children: <Widget>[
                                           Text(
@@ -318,37 +375,41 @@ class _TrackInvoice extends State<TrackInvoice> {
                                                 ),
                                         ],
                                       ),
-                                    ),
-                                    trailing: Container(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Text(
-                                            'Dh ${firstInvoice[index].invocieTotal.toString()}',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.pink[900],
-                                              fontSize: 14,
-                                            ),
+                                    ),*/
+                                        trailing: Container(
+                                          child: Column(
+                                            children: <Widget>[
+                                              Text(
+                                                'Dh ${firstInvoice[index].invocieTotal.toString()}',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.pink[900],
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                              Text(
+                                                'Bp ${firstInvoice[index].invocieBp.toString()}',
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.blue[900],
+                                                  fontSize: 14,
+                                                ),
+                                              )
+                                            ],
                                           ),
-                                          Text(
-                                            'Bp ${firstInvoice[index].invocieBp.toString()}',
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.blue[900],
-                                              fontSize: 14,
-                                            ),
-                                          )
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  children: [_buildOrder(firstInvoice, index)]
-                                  /* firstInvoice[index]
+                                      children: [
+                                        _buildOrder(firstInvoice, index)
+                                      ]
+                                      /* firstInvoice[index]
                         .invoiceItems
                         .map(_buildItem)
                         .toList()*/
-                                  //root.invoiceItems.map(_buildTiles).toList(),
-                                  )),
+                                      //root.invoiceItems.map(_buildTiles).toList(),
+                                      )
+                                ],
+                              )),
                         );
 
                         // EntryItem(invoices[index]);

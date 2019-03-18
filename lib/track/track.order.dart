@@ -370,15 +370,25 @@ class _TrackOrder extends State<TrackOrder> {
                           color: Colors.pink[700],
                           child: Column(
                             children: <Widget>[
-                              ListTile(
-                                  leading: Row(
-                                    mainAxisSize: MainAxisSize.min,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                //mainAxisSize: MainAxisSize.min,
+                                //crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
-                                      Icon(Icons.vpn_key),
+                                      Icon(
+                                        Icons.vpn_key,
+                                        color: Colors.grey[400],
+                                        size: 19,
+                                      ),
                                       Padding(
-                                        padding: EdgeInsets.only(right: 5),
+                                        padding: EdgeInsets.all(5),
                                       ),
                                       Text(
                                         firstSorder[index].distrId,
@@ -389,13 +399,19 @@ class _TrackOrder extends State<TrackOrder> {
                                       ),
                                     ],
                                   ),
-                                  trailing: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: <Widget>[
-                                      Icon(Icons.calendar_today),
+                                      Icon(
+                                        Icons.calendar_today,
+                                        color: Colors.grey[400],
+                                        size: 19,
+                                      ),
                                       Padding(
-                                        padding: EdgeInsets.only(right: 5),
+                                        padding: EdgeInsets.all(5),
                                       ),
                                       Text(
                                         firstSorder[index].docDate,
@@ -405,7 +421,14 @@ class _TrackOrder extends State<TrackOrder> {
                                             color: Colors.white),
                                       ),
                                     ],
-                                  )),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[],
+                              ),
                               ExpansionTile(
                                   backgroundColor: Colors.pink[400],
                                   key: PageStorageKey<Sorder>(
@@ -427,30 +450,6 @@ class _TrackOrder extends State<TrackOrder> {
                                         ],
                                       ),
                                     ),
-                                    /*  title: Container(
-                                      child: Column(
-                                        children: <Widget>[
-                                          Text(
-                                            firstSorder[index].distrId,
-                                            style: TextStyle(
-                                                fontStyle: FontStyle.italic,
-                                                fontSize: 14,
-                                                color: Colors.white),
-                                          ),
-                                          firstSorder[index].docDate ==
-                                                  '0000-00-00'
-                                              ? Container()
-                                              : Text(
-                                                  firstSorder[index].docDate,
-                                                  style: TextStyle(
-                                                      fontStyle:
-                                                          FontStyle.italic,
-                                                      fontSize: 14,
-                                                      color: Colors.white),
-                                                ),
-                                        ],
-                                      ),
-                                    ),*/
                                     trailing: Container(
                                       child: Column(
                                         children: <Widget>[
