@@ -370,6 +370,9 @@ class _TrackOrder extends State<TrackOrder> {
                           color: Colors.pink[700],
                           child: Column(
                             children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.all(2),
+                              ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,

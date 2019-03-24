@@ -1,4 +1,4 @@
-#Mon Mar 18 14:18:50 EET 2019
+#Wed Mar 20 13:34:28 EET 2019
 base.0=/Users/shadyabouauf/proj/n_gen/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

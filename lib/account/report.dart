@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -15,14 +16,17 @@ import 'package:http/http.dart' as http;
 class Report extends StatefulWidget {
   final String userId;
   Report(this.userId);
-  @override
+
   State<StatefulWidget> createState() {
     return _Report();
   }
 }
 
+@override
 class _Report extends State<Report> {
   Member member;
+
+  TextEditingController distrController = new TextEditingController();
   bool _isloading = false;
 
   void isloading(bool i) {
@@ -34,7 +38,7 @@ class _Report extends State<Report> {
   bool veri = false;
   //int _courier;
   User _nodeData;
-  TextEditingController distrController = new TextEditingController();
+
   void resetVeri() {
     distrController.clear();
     veri = false;
@@ -51,7 +55,7 @@ class _Report extends State<Report> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      drawer: Container(),
+      //drawer: Container(),
       floatingActionButton: FloatingActionButton(
         elevation: 21.5,
         backgroundColor: Colors.transparent,
@@ -108,7 +112,7 @@ class _Report extends State<Report> {
                   contentPadding: EdgeInsets.only(left: 8),
                   leading:
                       Icon(Icons.vpn_key, size: 25.0, color: Colors.pink[500]),
-                  title: TextField(
+                  title: TextFormField(
                     textAlign: TextAlign.center,
                     controller: distrController,
                     enabled: !veri ? true : false,
@@ -164,12 +168,16 @@ class _Report extends State<Report> {
                   color: Colors.grey,
                   child: ListTile(
                     trailing: Text(
-                      '${member.lastUpdate.substring(0, 5)}: اخر تحديث الساعة',
+                      '${member.lastUpdate.substring(0, 5)}: اخر تحديث ',
                       textAlign: TextAlign.right,
                       style: TextStyle(color: Colors.black),
                     ),
+                    title: Icon(
+                      Icons.access_time,
+                      color: Colors.pink[900],
+                    ),
                     leading: Text(
-                      '${member.nextUpdate.substring(0, 5)}: التحديث القادم الساعة',
+                      '${member.nextUpdate.substring(0, 5)}: التحديث القادم ',
                       textAlign: TextAlign.right,
                     ),
                   ))

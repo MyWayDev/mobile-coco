@@ -277,6 +277,9 @@ class _TrackInvoice extends State<TrackInvoice> {
                               color: _statusColor(firstInvoice[index].status),
                               child: Column(
                                 children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.all(2),
+                                  ),
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
@@ -292,7 +295,7 @@ class _TrackInvoice extends State<TrackInvoice> {
                                           Icon(
                                             Icons.vpn_key,
                                             size: 19,
-                                            color: Colors.black54,
+                                            color: Colors.blueGrey,
                                           ),
                                           Padding(
                                             padding: EdgeInsets.all(5),
@@ -315,7 +318,7 @@ class _TrackInvoice extends State<TrackInvoice> {
                                           Icon(
                                             Icons.calendar_today,
                                             size: 19,
-                                            color: Colors.black54,
+                                            color: Colors.blueGrey,
                                           ),
                                           Padding(
                                             padding: EdgeInsets.all(5),

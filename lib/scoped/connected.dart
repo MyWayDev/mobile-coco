@@ -992,6 +992,7 @@ for( var i = 0 ; i < _list.length; i++){
     FirebaseUser user = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     // print(user.uid);
+
     return user.uid;
   }
 // bool isLoggedIn;
@@ -1220,6 +1221,7 @@ for( var i = 0 ; i < _list.length; i++){
 //!--------*
   Future<void> signOut() async {
     print('signing outttttttttt');
+
     return FirebaseAuth.instance.signOut();
   }
 
