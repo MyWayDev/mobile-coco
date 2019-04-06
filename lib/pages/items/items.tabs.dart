@@ -46,9 +46,9 @@ class ItemsTabs extends StatelessWidget {
               indicatorSize: TabBarIndicatorSize.tab,
               tabs: <Widget>[
                 Tab(
-                  icon: new Icon(
+                  icon: Icon(
                     Icons.format_list_numbered,
-                    size: 29.0,
+                    size: 26.0,
                     color: Colors.grey[350],
                   ),
                 ),
@@ -60,7 +60,7 @@ class ItemsTabs extends StatelessWidget {
                     icon: Icon(
                       Icons.shopping_cart,
                       color: Colors.grey[350],
-                      size: 29.0,
+                      size: 26.0,
                     ), // required
                     //badgeColor: Colors.red, // default: Colors.red
                     badgeTextColor: Colors.white, // default: Colors.white
@@ -80,7 +80,7 @@ class ItemsTabs extends StatelessWidget {
                 Tab(
                   icon: new Icon(
                     GroovinMaterialIcons.file_find,
-                    size: 32.0,
+                    size: 28.0,
                     color: Colors.grey[350],
                   ),
                 ),

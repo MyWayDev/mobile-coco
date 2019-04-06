@@ -156,6 +156,10 @@ class _StockDialog extends State<StockDialog> {
                         color: Colors.green,
                       ),
                       onPressed: () async {
+                        print(
+                            'islimited = ${model.limited(int.parse(itemData[index].key))}');
+                        bool _limited =
+                            model.limited(int.parse(itemData[index].key));
                         if (_data.number > 0) {
                           bool t = true;
                           isLoading(t);
@@ -163,26 +167,54 @@ class _StockDialog extends State<StockDialog> {
                               await isGetStock(model, itemData[index].itemId);
                           int _stock =
                               await model.getStock(itemData[index].itemId);
-                          if (_data.number != 0 &&
-                              _stock >= 1 &&
-                              _stock - model.settings.safetyStock >=
-                                  _data.number +
-                                      model.getItemOrderQty(itemData[index]) &&
-                              _data.number +
-                                      model.getItemOrderQty(itemData[index]) <=
-                                  model.settings.maxOrder) {
-                            model.addItemOrder(itemData[index], _data.number);
+                          if (!_limited) {
+                            if (_data.number != 0 &&
+                                _stock >= 1 &&
+                                _stock - model.settings.safetyStock >=
+                                    _data.number +
+                                        model
+                                            .getItemOrderQty(itemData[index]) &&
+                                _data.number +
+                                        model
+                                            .getItemOrderQty(itemData[index]) <=
+                                    model.settings.maxOrder) {
+                              model.addItemOrder(itemData[index], _data.number);
 
-                            Navigator.pop(context);
-                            isLoading(x);
+                              Navigator.pop(context);
+                              isLoading(x);
+                            } else {
+                              Navigator.pop(context);
+                              _stockAlert(
+                                  context,
+                                  _stock,
+                                  model.settings.maxOrder,
+                                  model.settings.safetyStock,
+                                  model.getItemOrderQty(itemData[index]));
+                            }
                           } else {
-                            Navigator.pop(context);
-                            _stockAlert(
-                                context,
-                                _stock,
-                                model.settings.maxOrder,
-                                model.settings.safetyStock,
-                                model.getItemOrderQty(itemData[index]));
+                            if (_data.number != 0 &&
+                                _stock >= 1 &&
+                                _stock - model.settings.safetyStock >=
+                                    _data.number +
+                                        model
+                                            .getItemOrderQty(itemData[index]) &&
+                                _data.number +
+                                        model
+                                            .getItemOrderQty(itemData[index]) <=
+                                    model.settings.maxLimited) {
+                              model.addItemOrder(itemData[index], _data.number);
+
+                              Navigator.pop(context);
+                              isLoading(x);
+                            } else {
+                              Navigator.pop(context);
+                              _stockAlert(
+                                  context,
+                                  _stock,
+                                  model.settings.maxLimited,
+                                  model.settings.safetyStock,
+                                  model.getItemOrderQty(itemData[index]));
+                            }
                           }
                         }
                       },
@@ -205,7 +237,7 @@ class _StockDialog extends State<StockDialog> {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Center(child: Text('تحذير')),
+          title: Center(child: Text('')),
           content: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

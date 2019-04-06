@@ -66,81 +66,85 @@ class _NodeOrder extends State<NodeOrder> {
           key: _orderFormKey,
           child: Column(
             children: <Widget>[
-              ListTile(
-                //  contentPadding: EdgeInsets.all(0),
-                leading:
-                    Icon(Icons.vpn_key, size: 25.0, color: Colors.pink[500]),
-                title: TextFormField(
-                  textAlign: TextAlign.center,
-                  controller: controller,
-                  enabled: !veri ? true : false,
-                  style: TextStyle(
-                      fontSize: 15,
+              Container(
+                height: 50,
+                child: ListTile(
+                  //  contentPadding: EdgeInsets.all(0),
+                  leading:
+                      Icon(Icons.vpn_key, size: 24.0, color: Colors.pink[500]),
+                  title: TextFormField(
+                    textAlign: TextAlign.center,
+                    controller: controller,
+                    enabled: !veri ? true : false,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black87,
-                      fontWeight: FontWeight.bold),
-                  decoration: InputDecoration(
-                    hintText: 'ادخل رقم العضو',
-                    hintStyle: TextStyle(color: Colors.grey[400]),
+                    ),
+                    decoration: InputDecoration(
+                      hintText: 'ادخل رقم العضو',
+                      hintStyle: TextStyle(color: Colors.grey[400]),
 
-                    //contentPadding: EdgeInsets.all(5.0),
+                      //contentPadding: EdgeInsets.all(5.0),
+                    ),
+                    // controller: ,
+                    //autocorrect: true,
+                    //autofocus: true,
+                    //autovalidate: true,
+                    //initialValue: _isleader ? null : model.userInfo.distrId,
+
+                    keyboardType: TextInputType.number,
+                    validator: (value) => value.isEmpty
+                        ? 'Code is Empty !!'
+                        : RegExp('[0-9]').hasMatch(value)
+                            ? null
+                            : 'invalid code !!',
+                    onSaved: (String value) {
+                      _orderFormData['id'] = value.padLeft(8, '0');
+                    },
                   ),
-                  // controller: ,
-                  //autocorrect: true,
-                  //autofocus: true,
-                  //autovalidate: true,
-                  //initialValue: _isleader ? null : model.userInfo.distrId,
-
-                  keyboardType: TextInputType.number,
-                  validator: (value) => value.isEmpty
-                      ? 'Code is Empty !!'
-                      : RegExp('[0-9]').hasMatch(value)
-                          ? null
-                          : 'invalid code !!',
-                  onSaved: (String value) {
-                    _orderFormData['id'] = value.padLeft(8, '0');
-                  },
-                ),
-                trailing: IconButton(
-                  icon: !veri && controller.text.length > 0
-                      ? Icon(
-                          Icons.check,
-                          size: 30.0,
-                          color: Colors.blue,
-                        )
-                      : controller.text.length > 0
-                          ? Icon(
-                              Icons.close,
-                              size: 28.0,
-                              color: Colors.grey,
-                            )
-                          : Container(),
-                  color: Colors.pink[900],
-                  onPressed: () async {
-                    if (!veri) {
-                      isTyping = true;
-                      getTyping(model);
-                      veri = await model
-                          .leaderVerification(controller.text.padLeft(8, '0'));
-                      if (veri) {
+                  trailing: IconButton(
+                    icon: !veri && controller.text.length > 0
+                        ? Icon(
+                            Icons.check,
+                            size: 29.0,
+                            color: Colors.blue,
+                          )
+                        : controller.text.length > 0
+                            ? Icon(
+                                Icons.close,
+                                size: 24.0,
+                                color: Colors.grey,
+                              )
+                            : Container(),
+                    color: Colors.pink[900],
+                    onPressed: () async {
+                      if (!veri) {
                         isTyping = true;
                         getTyping(model);
-                        _nodeData = await model
-                            .nodeJson(controller.text.padLeft(8, '0'));
-                        controller.text =
-                            _nodeData.distrId + '    ' + _nodeData.name;
-                        shipment = await model.courierList(_nodeData.areaId);
+                        veri = await model.leaderVerification(
+                            controller.text.padLeft(8, '0'));
+                        if (veri) {
+                          isTyping = true;
+                          getTyping(model);
+                          _nodeData = await model
+                              .nodeJson(controller.text.padLeft(8, '0'));
+                          controller.text =
+                              _nodeData.distrId + '    ' + _nodeData.name;
+                          shipment = await model.courierList(_nodeData.areaId);
+                        } else {
+                          resetVeri();
+                          isTyping = false;
+                          getTyping(model);
+                        }
                       } else {
                         resetVeri();
                         isTyping = false;
                         getTyping(model);
                       }
-                    } else {
-                      resetVeri();
-                      isTyping = false;
-                      getTyping(model);
-                    }
-                  },
-                  splashColor: Colors.pink,
+                    },
+                    splashColor: Colors.pink,
+                  ),
                 ),
               ),
               veri && controller.text.length >= 8 && shipment.length > 0

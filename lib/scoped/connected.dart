@@ -26,7 +26,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 class MainModel extends Model {
   // ** items //** */
-  final String _version = '2.5B'; //!Modify for every release version./.
+  final String _version = '2.6B'; //!Modify for every release version./.
   final FirebaseDatabase database = FirebaseDatabase.instance;
   DatabaseReference databaseReference;
 
@@ -45,6 +45,17 @@ class MainModel extends Model {
   /* void fireItemListener(Function onAdded,Function onUpdated){
 
   }*/
+  bool limited(int key) {
+    bool islimited = false;
+    if (settings.limitedItem != null) {
+      for (var l in settings.limitedItem) {
+        if (key == l) {
+          islimited = true;
+        }
+      }
+    }
+    return islimited;
+  }
 
   Lock settings;
 //!--------*Settings*-----------//
@@ -55,6 +66,7 @@ class MainModel extends Model {
         .once();
     settings = Lock.fromSnapshot(snapshot);
     notifyListeners();
+
     //print('Setting${settings.bannerUrl}');
     return settings;
   }
@@ -1018,9 +1030,9 @@ for( var i = 0 ; i < _list.length; i++){
         .catchError((e) => print('ShitTY Erro:${e.toString()}'));
     if (_userInfo != null) {
       if (_userInfo.isAllowed) {
-        //versionControl(context);
-        //locKCart(context);
-        //locKApp(context); //! uncomment this before buildR
+        versionControl(context);
+        locKCart(context);
+        locKApp(context); //! uncomment this before buildR
         userAccess(key, context);
 
         getArea();

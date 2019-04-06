@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   getTotalAmount() {
-    var count = -1;
+    var count = 0;
     for (int i = 0; i < picked.length; i++) {
       if (picked[i]) {
         count = count + 1;

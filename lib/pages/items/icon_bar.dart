@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:n_gen/models/item.dart';
-import 'package:n_gen/pages/items/item.details.dart';
 import 'package:n_gen/scoped/connected.dart';
 import 'package:n_gen/widgets/stock_dialog.dart';
 import 'package:scoped_model/scoped_model.dart';

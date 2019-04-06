@@ -24,8 +24,8 @@ class OrderSummary extends StatelessWidget {
               ? Container(
                   height: 130,
                   child: ListView(
-                    physics: ScrollPhysics(),
-                    scrollDirection: Axis.vertical,
+                    physics: NeverScrollableScrollPhysics(),
+                    // scrollDirection: Axis.vertical,
                     children: <Widget>[
                       /*   Container(
                     height: 30,
@@ -41,7 +41,7 @@ class OrderSummary extends StatelessWidget {
                       ),
                     )),*/
                       Container(
-                          height: 30,
+                          height: 27,
                           child: ListTile(
                             leading: Text(model.orderBp().toString() + ' Bp'),
                             trailing: Icon(
@@ -54,7 +54,7 @@ class OrderSummary extends StatelessWidget {
                             ),
                           )),
                       Container(
-                          height: 30,
+                          height: 27,
                           child: ListTile(
                             leading: Text(courierFee.toString() + ' Dh'),
                             trailing: Icon(
@@ -67,7 +67,7 @@ class OrderSummary extends StatelessWidget {
                             ),
                           )),
                       Container(
-                          height: 30,
+                          height: 27,
                           child: ListTile(
                             leading: Text(model.orderSum().toString() + ' Dh'),
                             trailing: Icon(
@@ -80,7 +80,7 @@ class OrderSummary extends StatelessWidget {
                             ),
                           )),
                       Container(
-                          height: 30,
+                          height: 27,
                           child: ListTile(
                             leading: Text(
                                 model.settings.adminFee.toString() + ' Dh'),

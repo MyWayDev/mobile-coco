@@ -169,6 +169,7 @@ class _SaveDialog extends State<SaveDialog> {
                                               isLoading(false, model);
                                               showReview(context, msg.soid,
                                                   msg.amt, msg.error);
+                                              model.isTypeing = false;
                                             } else {
                                               isLoading(false, model);
                                             }

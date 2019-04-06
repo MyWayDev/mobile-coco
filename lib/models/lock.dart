@@ -10,15 +10,19 @@ class Lock {
   int maxOrder;
   int adminFee;
   String bannerUrl;
+  int maxLimited;
+  List limitedItem;
 
-  Lock(
-      {this.id,
-      this.lockApp = false,
-      this.catCode,
-      this.version,
-      this.adminFee,
-      this.safetyStock,
-      this.maxOrder});
+  Lock({
+    this.id,
+    this.lockApp = false,
+    this.catCode,
+    this.version,
+    this.adminFee,
+    this.safetyStock,
+    this.maxOrder,
+    this.maxLimited,
+  });
 
   Lock.fromSnapshot(DataSnapshot snapshot)
       : id = snapshot.value['id'],
@@ -29,5 +33,7 @@ class Lock {
         catCode = snapshot.value['catCode'],
         version = snapshot.value['version'],
         safetyStock = snapshot.value['safetyStock'],
-        maxOrder = snapshot.value['maxOrder'];
+        maxOrder = snapshot.value['maxOrder'],
+        maxLimited = snapshot.value['maxLimited'],
+        limitedItem = snapshot.value['limtedItem'];
 }

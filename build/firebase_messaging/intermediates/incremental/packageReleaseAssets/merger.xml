@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/shadyabouauf/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-4.0.0+1/android/src/main/assets"/><source path="/Users/shadyabouauf/proj/n_gen/build/firebase_messaging/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/Users/shadyabouauf/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-4.0.0+1/android/src/release/assets"/></dataSet></merger>

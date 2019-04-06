@@ -50,17 +50,20 @@ class _CourierOrder extends State<CourierOrder> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    TextField(
-                      textAlign: TextAlign.right,
-                      maxLines: 1,
-                      textDirection: TextDirection.rtl,
-                      controller: controller,
-                      decoration: InputDecoration(
-                        fillColor: Colors.lightBlue,
-                        hintText: 'ملاحظات',
+                    Container(
+                      height: 32,
+                      child: TextField(
+                        textAlign: TextAlign.right,
+                        maxLines: 1,
+                        textDirection: TextDirection.rtl,
+                        controller: controller,
+                        decoration: InputDecoration(
+                          fillColor: Colors.lightBlue,
+                          hintText: 'ملاحظات',
+                        ),
+                        // style: TextStyle(fontSize: 18.0),
+                        // onChanged: onSearchTextChanged,
                       ),
-                      // style: TextStyle(fontSize: 18.0),
-                      // onChanged: onSearchTextChanged,
                     ),
 
                     model.giftorderList.length > 0
@@ -69,8 +72,8 @@ class _CourierOrder extends State<CourierOrder> {
                             'هدايه النقاط',
                             style: TextStyle(
                                 color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.0),
+                                //fontWeight: FontWeight.bold,
+                                fontSize: 12.0),
                             textDirection: TextDirection.rtl,
                             textAlign: TextAlign.end,
                           )
@@ -80,7 +83,7 @@ class _CourierOrder extends State<CourierOrder> {
                             children: <Widget>[
                               Flexible(
                                 child: SizedBox(
-                                  height: 65.0,
+                                  height: 60.0,
                                   child: GiftList(),
                                 ),
                               )
@@ -97,76 +100,92 @@ class _CourierOrder extends State<CourierOrder> {
                       ],
                     ),
                     model.giftPacks.length == 0
-                        ? FormField<Courier>(
-                            initialValue: _chosenValue = null,
-                            onSaved: (val) => _chosenValue = val,
-                            validator: (val) => (val == null)
-                                ? 'Please choose a Courier'
-                                : null,
-                            builder: (FormFieldState<Courier> state) {
-                              return InputDecorator(
-                                textAlign: TextAlign.right,
-                                decoration: InputDecoration(
-                                  icon: Icon(Icons.local_shipping),
-                                  labelText: stateValue == null
-                                      ? 'طريقة الاستيلام'
-                                      : '',
-                                  errorText:
-                                      state.hasError ? state.errorText : null,
-                                ),
-                                isEmpty: state.value == null,
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<Courier>(
-                                    // iconSize: 25.0,
-                                    // elevation: 5,
-                                    value: stateValue,
-                                    isDense: true,
-                                    onChanged: (Courier newValue) async {
-                                      if (newValue.courierId == '') {
-                                        newValue = null;
-                                      }
-                                      setState(() {
-                                        stateValue = newValue;
-                                      });
-
-                                      state.didChange(newValue);
-                                      courierFee =
-                                          await model.courierServiceFee(
-                                              newValue.courierId,
-                                              areaId,
-                                              model.orderBp());
-                                      print('courierFees$courierFee');
-                                      print(areaId);
-
-                                      print(newValue.courierId);
-                                    },
-                                    items: shipment.map((Courier courier) {
-                                      return DropdownMenuItem<Courier>(
-                                        value: courier,
-                                        child: Text(
-                                          courier.name,
-                                          style: TextStyle(
-                                              color: Colors.pink[900],
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                      );
-                                    }).toList(),
+                        ? Container(
+                            height: 55,
+                            child: FormField<Courier>(
+                              initialValue: _chosenValue = null,
+                              onSaved: (val) => _chosenValue = val,
+                              validator: (val) => (val == null)
+                                  ? 'Please choose a Courier'
+                                  : null,
+                              builder: (FormFieldState<Courier> state) {
+                                return InputDecorator(
+                                  textAlign: TextAlign.right,
+                                  decoration: InputDecoration(
+                                    icon: Icon(Icons.local_shipping),
+                                    labelText: stateValue == null
+                                        ? 'طريقة الاستيلام'
+                                        : '',
+                                    errorText:
+                                        state.hasError ? state.errorText : null,
                                   ),
-                                ),
-                              );
-                            },
+                                  isEmpty: state.value == null,
+                                  child: DropdownButtonHideUnderline(
+                                    child: DropdownButton<Courier>(
+                                      // iconSize: 25.0,
+                                      // elevation: 5,
+                                      value: stateValue,
+                                      isDense: true,
+                                      onChanged: (Courier newValue) async {
+                                        if (newValue.courierId == '') {
+                                          newValue = null;
+                                        }
+                                        setState(() {
+                                          stateValue = newValue;
+                                        });
+
+                                        state.didChange(newValue);
+                                        courierFee =
+                                            await model.courierServiceFee(
+                                                newValue.courierId,
+                                                areaId,
+                                                model.orderBp());
+                                        print('courierFees$courierFee');
+                                        print(areaId);
+
+                                        print(newValue.courierId);
+                                      },
+                                      items: shipment.map((Courier courier) {
+                                        return DropdownMenuItem<Courier>(
+                                          value: courier,
+                                          child: Text(
+                                            courier.name,
+                                            style: TextStyle(
+                                                color: Colors.pink[900],
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        );
+                                      }).toList(),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           )
                         : Container(),
-                    stateValue != null && model.giftPacks.length == 0
-                        ? OrderSummary(stateValue.courierId, courierFee,
-                            model.userInfo.distrId, controller.text)
-                        : Container(),
-                    courierFee != null &&
-                            model.orderBp() > 0 &&
-                            model.giftPacks.length == 0
-                        ? OrderSave(stateValue.courierId, courierFee,
-                            widget.distrId, controller.text, widget.areaId)
-                        : Container(),
+                    Container(
+                        height: 175,
+                        child: ListView(
+                          physics: ClampingScrollPhysics(),
+                          scrollDirection: Axis.vertical,
+                          children: <Widget>[
+                            stateValue != null && model.giftPacks.length == 0
+                                ? OrderSummary(stateValue.courierId, courierFee,
+                                    model.userInfo.distrId, controller.text)
+                                : Container(),
+                            courierFee != null &&
+                                    model.orderBp() > 0 &&
+                                    model.giftPacks.length == 0
+                                ? OrderSave(
+                                    stateValue.courierId,
+                                    courierFee,
+                                    widget.distrId,
+                                    controller.text,
+                                    widget.areaId)
+                                : Container(),
+                          ],
+                        ))
+
                     //! missing widgets goes here;
                   ],
                 ),

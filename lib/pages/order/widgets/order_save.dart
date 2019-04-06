@@ -63,6 +63,7 @@ class OrderSave extends StatelessWidget {
             ),
             onPressed: () {
               model.isBalanceChecked = true;
+              //model.isTypeing = false;
               showDialog(
                   context: context,
                   builder: (_) =>

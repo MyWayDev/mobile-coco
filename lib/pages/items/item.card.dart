@@ -1,11 +1,5 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:n_gen/pages/items/icon_bar.dart';
-import 'package:n_gen/widgets/color_loader_2.dart';
-import 'package:n_gen/widgets/stock_dialog.dart';
-import 'package:numberpicker/numberpicker.dart';
-import 'package:n_gen/pages/items/item.details.dart';
 import 'package:n_gen/models/item.dart';
 import 'package:n_gen/scoped/connected.dart';
 import 'package:scoped_model/scoped_model.dart';

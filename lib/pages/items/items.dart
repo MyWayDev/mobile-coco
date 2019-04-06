@@ -101,7 +101,7 @@ class _ItemsPage extends State<ItemsPage> {
             Icons.arrow_right,
             color: Colors.transparent,
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.transparent, onPressed: () {},
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
@@ -109,12 +109,13 @@ class _ItemsPage extends State<ItemsPage> {
         body: Column(
           children: <Widget>[
             Container(
+              height: 60,
               color: Theme.of(context).primaryColorLight,
               child: Card(
                 child: ListTile(
                   leading: Icon(
                     Icons.search,
-                    size: 28.0,
+                    size: 24.0,
                   ),
                   title: TextField(
                     controller: controller,
@@ -126,7 +127,8 @@ class _ItemsPage extends State<ItemsPage> {
                     onChanged: onSearchTextChanged,
                   ),
                   trailing: IconButton(
-                    icon: Icon(Icons.cancel, size: 25.0),
+                    alignment: AlignmentDirectional.centerEnd,
+                    icon: Icon(Icons.cancel, size: 20.0),
                     onPressed: () {
                       controller.clear();
                       onSearchTextChanged('');
